@@ -82,11 +82,13 @@ summary::-webkit-details-marker{display:none}
 .site-footer a{color:#fff}
 
 /* главная */
-.hero{background:var(--hero-bg)}
-.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:40px;padding-top:56px;padding-bottom:56px}
-.hero-txt{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:28px}
-.hero-photo{flex:1 1 420px;min-width:0;border-radius:28px;overflow:hidden;aspect-ratio:4/5;max-height:640px;background:#C2C2C2}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.hero{background:#C4C4C3;color:#121212;overflow:hidden}
+.hero .logo-w{display:none!important}.hero .logo-b{display:block!important}
+.hero .btn-line{border-color:#121212;color:#121212}
+.hero-row{display:flex;flex-wrap:wrap;align-items:stretch}
+.hero-txt{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:28px;padding:88px 0 72px;position:relative;z-index:2}
+.hero-photo{flex:1 1 460px;min-width:0;min-height:560px;position:relative;margin-right:calc(-1 * max(32px, (100vw - 1320px) / 2 + 32px))}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 22%);mask-image:linear-gradient(90deg,transparent 0%,#000 22%)}
 .marquee{background:#121212;color:#fff;overflow:hidden;white-space:nowrap;font-family:Unbounded,sans-serif;font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;padding:16px 0}
 .marquee span{display:inline-block;padding-left:100%;animation:mq 40s linear infinite}
 @keyframes mq{to{transform:translateX(-100%)}}
@@ -138,7 +140,9 @@ summary::-webkit-details-marker{display:none}
  .split{padding-top:56px;padding-bottom:56px;gap:32px}
  .reader{padding:22px 14px;border-radius:20px}
  .reader-stage{gap:8px}.rd-btn{width:42px;height:42px}
- .hero-row{padding-top:28px;padding-bottom:36px}
+ .hero-txt{padding:36px 0 28px}
+ .hero-photo{min-height:440px;margin:0 -18px}
+ .hero-photo img{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%);mask-image:linear-gradient(180deg,transparent 0%,#000 14%)}
 }
 main{overflow-x:clip}
 .reader-stage img{flex:1 1 auto;min-width:0;max-width:640px;width:100%}
