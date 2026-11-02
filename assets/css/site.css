@@ -1,0 +1,144 @@
+/* АСЯ NOVA — общий стиль сайта. Цвета задаются переменными темы страницы (.t-*) */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}a:hover{color:var(--accent-text)}
+img{max-width:100%}
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+.wrap{max-width:1320px;margin:0 auto;padding-left:32px;padding-right:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:16px;padding:16px 28px;border-radius:999px;border:2px solid transparent;cursor:pointer;font-family:inherit}
+.btn-accent{background:var(--accent);color:var(--on-accent)}.btn-accent:hover{color:var(--on-accent);filter:brightness(1.08)}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
+.chip{text-decoration:none;color:var(--ink);background:var(--chip);padding:10px 16px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid var(--border)}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--label)}
+.h-display{font-family:var(--font-display);font-weight:var(--title-weight);font-style:var(--title-style);text-transform:var(--title-transform);line-height:1.08;margin:0}
+.h2{font-size:clamp(30px,3.4vw,46px);color:var(--ink)}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px}
+.no-scrollbar{scrollbar-width:none}.no-scrollbar::-webkit-scrollbar{display:none}
+
+/* шапка */
+.site-header{position:sticky;top:0;z-index:20;background:var(--header-bg);border-bottom:1px solid var(--border);backdrop-filter:saturate(1.2) blur(6px)}
+.link-bar{background:var(--bar);color:#fff}
+.link-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-top:8px;padding-bottom:8px}
+.link-group{display:flex;align-items:center;gap:8px}
+.link-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bar-muted);white-space:nowrap}
+.pl{flex:none;width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;text-decoration:none}
+.pl.small{font-size:10px}
+.hdr-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 16px;padding-top:14px;padding-bottom:14px}
+.logo img{height:52px;width:auto;display:block}
+.logo-w{display:none!important}
+[data-theme=dark] .logo-b{display:none!important}[data-theme=dark] .logo-w{display:block!important}
+.site-nav{display:flex;flex-wrap:wrap;gap:4px 24px;font-weight:700;font-size:15px;letter-spacing:.02em}
+.site-nav a{text-decoration:none;padding:10px 0;color:var(--ink)}
+.site-nav a.active{color:var(--accent-text);border-bottom:2px solid var(--accent-text)}
+.hdr-actions{display:flex;align-items:center;gap:10px}
+.theme-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--border);background:var(--surface);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.theme-btn .i-sun{display:none}[data-theme=dark] .theme-btn .i-sun{display:block}[data-theme=dark] .theme-btn .i-moon{display:none}
+.hdr-cta{padding:13px 22px;font-size:14px}
+
+/* страница песни */
+.crumbs{font-size:14px;font-weight:600;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;padding-top:28px}
+.crumbs a{color:var(--muted)}
+.song-cols{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;margin-top:28px}
+.song-left{flex:1 1 500px;max-width:580px;min-width:0;display:flex;flex-direction:column;gap:22px}
+@media (min-width:1000px){.song-left{position:sticky;top:156px}}
+.cover{width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;box-shadow:0 24px 50px rgba(0,0,0,.22);display:block}
+.song-title{font-size:var(--title-size);color:var(--accent-text);margin:10px 0 6px}
+.listen{padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.listen-main{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+.play{flex:none;width:60px;height:60px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.credits{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:8px 20px;font-size:15px}
+.credits dt{color:var(--muted);font-weight:600}.credits dd{margin:0;font-weight:700}
+.lyrics{flex:1 1 440px;min-width:0;padding:34px 40px 44px;border-radius:22px}
+.lyrics summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:22px;border-bottom:1px dashed var(--dashed);margin-bottom:28px}
+.lyrics:not([open]) summary{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.lyrics:not([open]) .when-open,.lyrics[open] .when-closed{display:none}
+.lyrics-text{display:flex;flex-direction:column;gap:30px;font-size:20px;line-height:1.6}
+.lyrics-text p{margin:0;white-space:pre-line}.lyrics-text p+p{margin-top:16px}
+.lyrics-text .ch{color:var(--chorus);font-weight:700}
+.lab{font-weight:800;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--label);margin-bottom:8px}
+.sec{margin-top:104px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:26px}
+.car-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+.car-track img{height:480px;width:auto;flex:none;border-radius:16px;scroll-snap-align:start;display:block;max-width:none}
+.car-btn{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.tile{position:relative;border-radius:18px;overflow:hidden;min-height:300px;display:block;text-decoration:none;color:#fff}
+.tile>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.75) 100%)}
+.tile .cap{position:absolute;left:22px;right:22px;bottom:18px;font-weight:800;font-size:19px}
+.tile .pbtn{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:#fff;color:#111;display:flex;align-items:center;justify-content:center}
+.grid-covers{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:24px 18px}
+.grid-covers a{text-decoration:none;display:flex;flex-direction:column;gap:10px;color:var(--ink)}
+.grid-covers img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px}
+.grid-covers span{font-weight:800;font-size:16px}
+
+/* подвал */
+.site-footer{background:var(--bar);color:#fff;margin-top:104px}
+.foot-row{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;padding-top:40px;padding-bottom:40px}
+.site-footer a{color:#fff}
+
+/* главная */
+.hero{background:var(--hero-bg)}
+.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:40px;padding-top:56px;padding-bottom:56px}
+.hero-txt{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.hero-photo{flex:1 1 420px;min-width:0;border-radius:28px;overflow:hidden;aspect-ratio:4/5;max-height:640px;background:#C2C2C2}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.marquee{background:#121212;color:#fff;overflow:hidden;white-space:nowrap;font-family:Unbounded,sans-serif;font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;padding:16px 0}
+.marquee span{display:inline-block;padding-left:100%;animation:mq 40s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.marquee span{animation:none;padding-left:32px}}
+.band-red{background:#A80D0B;color:#fff}
+.band-red a{color:#fff}
+.band-cream{background:var(--cream)}
+.split{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:88px;padding-bottom:88px}
+.split>*{min-width:0}
+.event{display:flex;gap:22px;align-items:flex-start;padding:26px}
+.date-badge{flex:none;width:84px;text-align:center;background:var(--accent);color:var(--on-accent);border-radius:12px;padding:12px 6px;font-weight:800}
+.stat{background:var(--surface);border-radius:16px;padding:22px;border:1px solid var(--border)}
+.comic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.comic-grid img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;border-radius:8px;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+
+/* комикс */
+.reader{background:#1B120E;color:#fff;border-radius:28px;padding:36px 32px 32px}
+.reader-stage{display:flex;align-items:center;justify-content:center;gap:20px}
+.reader-stage img{width:min(100%,640px);height:auto;aspect-ratio:2/3;object-fit:contain;border-radius:8px;background:#F7EFE2;box-shadow:0 20px 50px rgba(0,0,0,.45);display:block}
+.rd-btn{flex:none;width:56px;height:56px;border-radius:50%;border:0;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.thumbs{display:flex;gap:10px;overflow-x:auto;margin-top:28px;padding:4px 2px 8px}
+.thumbs button{flex:none;width:64px;height:96px;padding:0;border-radius:6px;cursor:pointer;background:transparent;opacity:.55;border:3px solid transparent}
+.thumbs button.on{opacity:1;border-color:#E9C77A}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block;border-radius:4px}
+
+/* мерч */
+.product{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.product .pic{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+.product .pic img{width:100%;height:100%;object-fit:contain}
+.tag{position:absolute;left:12px;top:12px;background:#121212;color:#fff;font-weight:700;font-size:12px;padding:6px 10px;border-radius:999px}
+
+@media (max-width:760px){
+ .wrap{padding-left:18px;padding-right:18px}
+ .link-row{flex-wrap:nowrap;overflow-x:auto;gap:16px;justify-content:flex-start;scrollbar-width:none}
+ .link-row::-webkit-scrollbar,.site-nav::-webkit-scrollbar{display:none}
+ .link-label{display:none}
+ .hdr-row{padding-top:10px;padding-bottom:10px}
+ .logo img{height:40px}
+ .site-nav{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:22px;padding-bottom:2px;scrollbar-width:none}
+ .site-nav a{white-space:nowrap}
+ .hdr-cta{display:none}
+ .song-cols{gap:32px;margin-top:18px}
+ .lyrics{padding:22px 20px 28px}
+ .lyrics-text{font-size:18px}
+ .car-track img{height:340px}
+ .car-arrows{display:none!important}
+ .sec{margin-top:64px}
+ .grid-covers{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .split{padding-top:56px;padding-bottom:56px;gap:32px}
+ .reader{padding:22px 14px;border-radius:20px}
+ .reader-stage{gap:8px}.rd-btn{width:42px;height:42px}
+ .hero-row{padding-top:28px;padding-bottom:36px}
+}
+main{overflow-x:clip}
+.reader-stage img{flex:1 1 auto;min-width:0;max-width:640px;width:100%}
