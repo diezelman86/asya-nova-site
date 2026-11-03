@@ -148,3 +148,7 @@ summary::-webkit-details-marker{display:none}
 }
 main{overflow-x:clip}
 .reader-stage img{flex:1 1 auto;min-width:0;max-width:640px;width:100%}
+/* значки площадок и соцсетей: приглушённые, с красной обводкой; цвет при наведении */
+.pl{box-shadow:0 0 0 2px #C8102E}
+.pl img{filter:grayscale(1);opacity:.7;transition:filter .2s,opacity .2s}
+.pl:hover img,.pl:focus-visible img{filter:none;opacity:1}
