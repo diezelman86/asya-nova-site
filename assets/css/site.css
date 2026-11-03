@@ -24,8 +24,10 @@ summary::-webkit-details-marker{display:none}
 .link-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-top:8px;padding-bottom:8px}
 .link-group{display:flex;align-items:center;gap:8px}
 .link-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bar-muted);white-space:nowrap}
-.pl{flex:none;width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;text-decoration:none}
-.pl.small{font-size:10px}
+.pl{flex:none;width:34px;height:34px;border-radius:50%;display:inline-flex;overflow:hidden;text-decoration:none}
+.pl img{width:34px;height:34px;display:block;object-fit:cover}
+.chip-ic{display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 5px}
+.chip-ic img{width:26px;height:26px;border-radius:50%;object-fit:cover;display:block}
 .hdr-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 16px;padding-top:14px;padding-bottom:14px}
 .logo img{height:52px;width:auto;display:block}
 .logo-w{display:none!important}
