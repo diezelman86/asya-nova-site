@@ -214,3 +214,7 @@ main{overflow-x:clip}
 .radio-logo{height:70px;width:100%;display:flex;align-items:center;justify-content:center}
 .radio-logo img{max-height:70px;max-width:100%;object-fit:contain;border-radius:8px}
 .radio-name{font-size:12px;font-weight:700;color:#5c5c5c;line-height:1.2}
+.playlist{margin-top:28px;display:flex;flex-wrap:wrap;gap:28px;padding:30px;align-items:center}
+.playlist-txt{flex:1 1 280px;min-width:0}
+.playlist-frame{flex:2 1 520px;min-width:0;width:100%;height:556px;border:0;border-radius:12px;background:var(--chip)}
+@media (max-width:760px){.playlist{padding:20px}.playlist-frame{height:480px;flex-basis:100%}}
