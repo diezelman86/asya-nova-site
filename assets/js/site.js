@@ -284,3 +284,126 @@
     return { open: open, close: close, isOpen: function () { return opened; } };
   }
 })();
+
+/* Скачать / Получить минус — окно «поделись и скачай» */
+(function () {
+  var S = window.SONGS || {};
+  var box = null, cur = null;
+  function store(key, val) { try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; } }
+  function enc(x) { return encodeURIComponent(x); }
+  function build() {
+    box = document.createElement('div');
+    box.className = 'dl-modal'; box.hidden = true;
+    box.innerHTML = '<div class="dl-back" data-dl-close></div><div class="dl-card" role="dialog" aria-modal="true" aria-labelledby="dl-t">' +
+      '<button type="button" class="dl-x" data-dl-close aria-label="Закрыть">×</button>' +
+      '<img class="dl-cover" alt=""><div class="eyebrow dl-kind"></div><h3 id="dl-t" class="dl-title"></h3>' +
+      '<p class="dl-lead">Поделитесь песней с друзьями — и скачивание откроется.</p>' +
+      '<div class="dl-share">' +
+      '<button type="button" data-net="vk">ВКонтакте</button><button type="button" data-net="tg">Telegram</button>' +
+      '<button type="button" data-net="ok">Одноклассники</button><button type="button" data-net="wa">WhatsApp</button>' +
+      '<button type="button" data-net="native" class="dl-native">Другое…</button></div>' +
+      '<a class="btn btn-accent dl-get" download>Скачать MP3</a><p class="dl-note"></p></div>';
+    document.body.appendChild(box);
+    if (!navigator.share) box.querySelector('.dl-native').remove();
+  }
+  function text(s) { return 'Мне нравится песня АСЯ NOVA «' + s.t + '» — слушай и ты! 🎶'; }
+  function refresh() {
+    var s = S[cur.k], file = cur.kind === 'minus' ? s.m : s.f;
+    var open = store('dl-ok-' + cur.k) === '1';
+    var get = box.querySelector('.dl-get'), note = box.querySelector('.dl-note');
+    get.textContent = cur.kind === 'minus' ? 'Скачать минус' : 'Скачать MP3';
+    if (!file) { get.hidden = true; note.textContent = cur.kind === 'minus' ? 'Минусовка скоро появится здесь — спасибо, что делитесь!' : 'Трек скоро появится для скачивания — спасибо, что делитесь!'; note.hidden = !open; return; }
+    get.hidden = false; note.hidden = true;
+    get.href = file; get.setAttribute('download', 'АСЯ NOVA — ' + s.t + (cur.kind === 'minus' ? ' (минус)' : '') + '.mp3');
+    get.classList.toggle('locked', !open);
+    get.setAttribute('aria-disabled', open ? 'false' : 'true');
+  }
+  function show(k, kind) {
+    if (!S[k]) return;
+    if (!box) build();
+    cur = { k: k, kind: kind };
+    var s = S[k];
+    box.querySelector('.dl-cover').src = s.ci || s.c;
+    box.querySelector('.dl-title').textContent = s.t;
+    box.querySelector('.dl-kind').textContent = kind === 'minus' ? 'Минусовка' : 'Скачать песню';
+    refresh();
+    box.hidden = false; document.documentElement.classList.add('dl-lock');
+    box.querySelector('.dl-x').focus();
+  }
+  function hide() { if (box) { box.hidden = true; document.documentElement.classList.remove('dl-lock'); } }
+  function share(net) {
+    var s = S[cur.k], u = s.u, t = text(s), link;
+    if (net === 'vk') link = 'https://vk.com/share.php?url=' + enc(u) + '&title=' + enc(t) + '&image=' + enc(s.c);
+    else if (net === 'tg') link = 'https://t.me/share/url?url=' + enc(u) + '&text=' + enc(t);
+    else if (net === 'ok') link = 'https://connect.ok.ru/offer?url=' + enc(u) + '&title=' + enc(t) + '&imageUrl=' + enc(s.c);
+    else if (net === 'wa') link = 'https://wa.me/?text=' + enc(t + ' ' + u);
+    if (net === 'native') { navigator.share({ title: 'АСЯ NOVA — ' + s.t, text: t, url: u }).then(unlock, function () {}); return; }
+    window.open(link, '_blank', 'noopener,width=640,height=600');
+    unlock();
+  }
+  function unlock() { store('dl-ok-' + cur.k, '1'); refresh(); }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-dl]');
+    if (b) { e.preventDefault(); if (b.getAttribute('data-kind') === 'minus') minus(b.getAttribute('data-dl')); else show(b.getAttribute('data-dl'), 'track'); return; }
+    if (!box || box.hidden) return;
+    if (e.target.closest('[data-dl-close]')) { hide(); return; }
+    var n = e.target.closest('[data-net]');
+    if (n) { share(n.getAttribute('data-net')); return; }
+    var g = e.target.closest('.dl-get');
+    if (g && g.classList.contains('locked')) { e.preventDefault(); var l = box.querySelector('.dl-lead'); l.classList.remove('dl-shake'); void l.offsetWidth; l.classList.add('dl-shake'); }
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { hide(); hideM(); } });
+
+  /* Получить минус — контакты с готовым сообщением */
+  var C = { phone: '+79534151286', phoneView: '+7 953 415-12-86', tg: 'diezelman', vk: 'https://vk.me/club31319842', max: '' };
+  var mbox = null, msg = '';
+  function copy(t) {
+    try { if (navigator.clipboard) return navigator.clipboard.writeText(t); } catch (e) {}
+    var a = document.createElement('textarea'); a.value = t; a.style.position = 'fixed'; a.style.opacity = '0'; document.body.appendChild(a); a.select();
+    try { document.execCommand('copy'); } catch (e) {} a.remove(); return Promise.resolve();
+  }
+  function buildM() {
+    mbox = document.createElement('div'); mbox.className = 'dl-modal'; mbox.hidden = true;
+    mbox.innerHTML = '<div class="dl-back" data-m-close></div><div class="dl-card" role="dialog" aria-modal="true" aria-labelledby="m-t">' +
+      '<button type="button" class="dl-x" data-m-close aria-label="Закрыть">×</button>' +
+      '<img class="dl-cover" alt=""><div class="eyebrow">Минусовка</div><h3 id="m-t" class="dl-title"></h3>' +
+      '<p class="dl-lead">По поводу запроса или приобретения минусовки этой песни напишите нам — ответим и всё расскажем.</p>' +
+      '<div class="m-msg"><div class="m-msg-l">Ваше сообщение</div><div class="m-msg-t"></div></div>' +
+      '<div class="m-btns">' +
+      '<a class="m-btn m-max" target="_blank" rel="noopener"><img src="/assets/icons/max.svg" alt="">Написать в MAX</a>' +
+      '<a class="m-btn m-tg" target="_blank" rel="noopener"><img src="/assets/icons/telegram.svg" alt="">Написать в Telegram</a>' +
+      '<a class="m-btn m-vk" target="_blank" rel="noopener"><img src="/assets/icons/vk.svg" alt="">Написать ВКонтакте</a></div>' +
+      '<p class="m-phone">MAX: <a href="tel:' + C.phone + '">' + C.phoneView + '</a></p>' +
+      '<p class="dl-note m-hint" hidden></p></div>';
+    document.body.appendChild(mbox);
+  }
+  function minus(k) {
+    var s = S[k]; if (!s) return;
+    if (!mbox) buildM();
+    msg = 'Здравствуйте, меня интересует минус песни АСЯ NOVA — «' + s.t + '»';
+    mbox.querySelector('.dl-cover').src = s.ci || s.c;
+    mbox.querySelector('.dl-title').textContent = s.t;
+    mbox.querySelector('.m-msg-t').textContent = msg;
+    mbox.querySelector('.m-tg').href = 'https://t.me/' + C.tg + '?text=' + encodeURIComponent(msg);
+    mbox.querySelector('.m-vk').href = C.vk;
+    mbox.querySelector('.m-max').href = C.max || ('tel:' + C.phone);
+    mbox.querySelector('.m-hint').hidden = true;
+    mbox.hidden = false; document.documentElement.classList.add('dl-lock');
+    mbox.querySelector('.dl-x').focus();
+  }
+  function hideM() { if (mbox) { mbox.hidden = true; document.documentElement.classList.remove('dl-lock'); } }
+  document.addEventListener('click', function (e) {
+    if (!mbox || mbox.hidden) return;
+    if (e.target.closest('[data-m-close]')) { hideM(); return; }
+    var b = e.target.closest('.m-btn, .m-msg');
+    if (!b) return;
+    var h = mbox.querySelector('.m-hint');
+    copy(msg).then(function () {
+      h.textContent = b.classList.contains('m-tg') ? 'Сообщение подставится в чат. На всякий случай мы его скопировали.'
+        : b.classList.contains('m-max') ? (C.max ? 'Сообщение скопировано — вставьте его в чат MAX.' : 'Сообщение скопировано. Найдите в MAX номер ' + C.phoneView + ' и вставьте сообщение в чат.')
+        : b.classList.contains('m-vk') ? 'Сообщение скопировано — вставьте его в чат ВКонтакте.' : 'Сообщение скопировано.';
+      h.hidden = false;
+    });
+    if (b.classList.contains('m-max') && !C.max) e.preventDefault();
+  });
+})();
