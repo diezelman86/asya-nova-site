@@ -269,3 +269,5 @@ main{overflow-x:clip}
 .m-btn img{width:24px;height:24px;border-radius:50%;object-fit:cover}
 .m-phone{margin:14px 0 0;font-weight:700;color:var(--muted)}
 .m-phone a{color:var(--ink)}
+.m-btn[hidden],.m-phone[hidden]{display:none}
+.m-btn.m-label{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}

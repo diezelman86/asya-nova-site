@@ -372,7 +372,8 @@
       '<div class="m-btns">' +
       '<a class="m-btn m-max" target="_blank" rel="noopener"><img src="/assets/icons/max.svg" alt="">Написать в MAX</a>' +
       '<a class="m-btn m-tg" target="_blank" rel="noopener"><img src="/assets/icons/telegram.svg" alt="">Написать в Telegram</a>' +
-      '<a class="m-btn m-vk" target="_blank" rel="noopener"><img src="/assets/icons/vk.svg" alt="">Написать ВКонтакте</a></div>' +
+      '<a class="m-btn m-vk" target="_blank" rel="noopener"><img src="/assets/icons/vk.svg" alt="">Написать ВКонтакте</a>' +
+      '<a class="m-btn m-label btn-accent" href="https://uramusic.ru/" target="_blank" rel="noopener">Перейти на сайт «Ура! Музыки»</a></div>' +
       '<p class="m-phone">MAX: <a href="tel:' + C.phone + '">' + C.phoneView + '</a></p>' +
       '<p class="dl-note m-hint" hidden></p></div>';
     document.body.appendChild(mbox);
@@ -387,6 +388,12 @@
     mbox.querySelector('.m-tg').href = 'https://t.me/' + C.tg + '?text=' + encodeURIComponent(msg);
     mbox.querySelector('.m-vk').href = C.vk;
     mbox.querySelector('.m-max').href = C.max || ('tel:' + C.phone);
+    var lab = k === 'devica';
+    mbox.querySelector('.dl-lead').textContent = lab
+      ? 'Песня «Девица-красавица» вышла на лейбле «Ура! Музыка» (лейбл «Детского радио»). По поводу запроса или приобретения минусовки обращайтесь, пожалуйста, на сайт лейбла — сообщение можно взять готовое.'
+      : 'По поводу запроса или приобретения минусовки этой песни напишите нам — ответим и всё расскажем.';
+    ['.m-max', '.m-tg', '.m-vk', '.m-phone'].forEach(function (q) { mbox.querySelector(q).hidden = lab; });
+    mbox.querySelector('.m-label').hidden = !lab;
     mbox.querySelector('.m-hint').hidden = true;
     mbox.hidden = false; document.documentElement.classList.add('dl-lock');
     mbox.querySelector('.dl-x').focus();
@@ -401,7 +408,8 @@
     copy(msg).then(function () {
       h.textContent = b.classList.contains('m-tg') ? 'Сообщение подставится в чат. На всякий случай мы его скопировали.'
         : b.classList.contains('m-max') ? (C.max ? 'Сообщение скопировано — вставьте его в чат MAX.' : 'Сообщение скопировано. Найдите в MAX номер ' + C.phoneView + ' и вставьте сообщение в чат.')
-        : b.classList.contains('m-vk') ? 'Сообщение скопировано — вставьте его в чат ВКонтакте.' : 'Сообщение скопировано.';
+        : b.classList.contains('m-vk') ? 'Сообщение скопировано — вставьте его в чат ВКонтакте.'
+        : b.classList.contains('m-label') ? 'Сообщение скопировано — вставьте его в форму связи на сайте лейбла.' : 'Сообщение скопировано.';
       h.hidden = false;
     });
     if (b.classList.contains('m-max') && !C.max) e.preventDefault();
