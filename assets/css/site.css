@@ -271,7 +271,10 @@ main{overflow-x:clip}
 .m-phone a{color:var(--ink)}
 .m-btn[hidden],.m-phone[hidden]{display:none}
 .m-btn.m-label{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.dl-share{grid-template-columns:1fr}
+.dl-share{grid-template-columns:1fr 1fr 1fr}
+.dl-share button{display:flex;flex-direction:column;align-items:center;gap:6px}
+.dl-share button img{width:30px;height:30px;border-radius:50%;object-fit:cover}
+.dl-share .dl-main{grid-column:1/-1}
 .dl-share .dl-main{background:var(--ink);color:var(--bg);border-color:var(--ink);padding:14px}
 .dl-alt{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .dl-alt[hidden]{display:none}
