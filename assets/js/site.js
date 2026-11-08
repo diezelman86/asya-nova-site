@@ -297,14 +297,15 @@
     box.innerHTML = '<div class="dl-back" data-dl-close></div><div class="dl-card" role="dialog" aria-modal="true" aria-labelledby="dl-t">' +
       '<button type="button" class="dl-x" data-dl-close aria-label="Закрыть">×</button>' +
       '<img class="dl-cover" alt=""><div class="eyebrow dl-kind"></div><h3 id="dl-t" class="dl-title"></h3>' +
-      '<p class="dl-lead">Поделитесь песней с друзьями — и скачивание откроется.</p>' +
+      '<p class="dl-lead">Поделитесь песней с друзьями в любой соцсети или мессенджере — и скачивание откроется.</p>' +
       '<div class="dl-share">' +
-      '<button type="button" data-net="vk">ВКонтакте</button><button type="button" data-net="tg">Telegram</button>' +
-      '<button type="button" data-net="ok">Одноклассники</button><button type="button" data-net="wa">WhatsApp</button>' +
-      '<button type="button" data-net="native" class="dl-native">Другое…</button></div>' +
+      '<button type="button" data-net="share" class="dl-main">Поделиться песней</button>' +
+      '<div class="dl-alt"><button type="button" data-net="vk">ВКонтакте</button><button type="button" data-net="tg">Telegram</button></div>' +
+      '<button type="button" data-net="copy">Скопировать ссылку</button></div>' +
       '<a class="btn btn-accent dl-get" download>Скачать MP3</a><p class="dl-note"></p></div>';
     document.body.appendChild(box);
-    if (!navigator.share) box.querySelector('.dl-native').remove();
+    box.querySelector('.dl-alt').hidden = !!navigator.share;
+    if (!navigator.share) box.querySelector('.dl-main').remove();
   }
   function text(s) { return 'Мне нравится песня АСЯ NOVA «' + s.t + '» — слушай и ты! 🎶'; }
   function refresh() {
@@ -326,24 +327,27 @@
     box.querySelector('.dl-cover').src = s.ci || s.c;
     box.querySelector('.dl-title').textContent = s.t;
     box.querySelector('.dl-kind').textContent = kind === 'minus' ? 'Минусовка' : 'Скачать песню';
+    var cb = box.querySelector('[data-net="copy"]'); if (cb) cb.textContent = 'Скопировать ссылку';
     refresh();
     box.hidden = false; document.documentElement.classList.add('dl-lock');
     box.querySelector('.dl-x').focus();
   }
   function hide() { if (box) { box.hidden = true; document.documentElement.classList.remove('dl-lock'); } }
   function share(net) {
-    var s = S[cur.k], u = s.s || s.u, t = text(s), link;
-    var mobile = window.matchMedia && matchMedia('(pointer: coarse)').matches;
-    if (net === 'native' || (net === 'vk' && mobile && navigator.share)) {
-      navigator.share({ title: 'АСЯ NOVA — ' + s.t, text: t, url: u }).then(unlock, function () {});
+    var s = S[cur.k], u = s.s || s.u, t = text(s);
+    if (net === 'share') { navigator.share({ title: 'АСЯ NOVA — ' + s.t, text: t, url: u }).then(unlock, function () {}); return; }
+    if (net === 'copy') {
+      copyText(t + ' ' + u).then(function () { var b = box.querySelector('[data-net="copy"]'); b.textContent = 'Ссылка скопирована — отправьте её друзьям'; unlock(); });
       return;
     }
-    if (net === 'vk') link = 'https://vk.com/share.php?url=' + enc(u);
-    else if (net === 'tg') link = 'https://t.me/share/url?url=' + enc(u) + '&text=' + enc(t);
-    else if (net === 'ok') link = 'https://connect.ok.ru/offer?url=' + enc(u);
-    else if (net === 'wa') link = 'https://wa.me/?text=' + enc(t + ' ' + u);
+    var link = net === 'vk' ? 'https://vk.com/share.php?url=' + enc(u) : 'https://t.me/share/url?url=' + enc(u) + '&text=' + enc(t);
     window.open(link, '_blank', 'noopener,width=640,height=600');
     unlock();
+  }
+  function copyText(x) {
+    try { if (navigator.clipboard) return navigator.clipboard.writeText(x); } catch (e) {}
+    var a = document.createElement('textarea'); a.value = x; a.style.position = 'fixed'; a.style.opacity = '0'; document.body.appendChild(a); a.select();
+    try { document.execCommand('copy'); } catch (e) {} a.remove(); return Promise.resolve();
   }
   function unlock() { store('dl-ok-' + cur.k, '1'); refresh(); }
   document.addEventListener('click', function (e) {

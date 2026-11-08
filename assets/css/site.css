@@ -271,3 +271,7 @@ main{overflow-x:clip}
 .m-phone a{color:var(--ink)}
 .m-btn[hidden],.m-phone[hidden]{display:none}
 .m-btn.m-label{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.dl-share{grid-template-columns:1fr}
+.dl-share .dl-main{background:var(--ink);color:var(--bg);border-color:var(--ink);padding:14px}
+.dl-alt{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dl-alt[hidden]{display:none}
