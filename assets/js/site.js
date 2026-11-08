@@ -355,7 +355,7 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { hide(); hideM(); } });
 
   /* Получить минус — контакты с готовым сообщением */
-  var C = { phone: '+79534151286', phoneView: '+7 953 415-12-86', tg: 'diezelman', vk: 'https://vk.me/club31319842', max: '' };
+  var C = { phone: '+79534151286', phoneView: '+7 953 415-12-86', tg: 'diezelman', vk: 'https://vk.me/club31319842', max: 'https://max.ru/u/f9LHodD0cOJ5S2-14DDen5gNBaiiB9LqZckwguthnryLwvFU8zgnq4HaRXQ' };
   var mbox = null, msg = '';
   function copy(t) {
     try { if (navigator.clipboard) return navigator.clipboard.writeText(t); } catch (e) {}
