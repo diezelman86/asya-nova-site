@@ -333,7 +333,7 @@
   function hide() { if (box) { box.hidden = true; document.documentElement.classList.remove('dl-lock'); } }
   function share(net) {
     var s = S[cur.k], u = s.u, t = text(s), link;
-    if (net === 'vk') link = 'https://vk.com/share.php?url=' + enc(u) + '&title=' + enc(t) + '&image=' + enc(s.c);
+    if (net === 'vk') link = 'https://vk.ru/share.php?url=' + enc(u) + '&title=' + enc(t.replace(/\s*🎶/, '')) + '&image=' + enc(s.c) + '&noparse=true';
     else if (net === 'tg') link = 'https://t.me/share/url?url=' + enc(u) + '&text=' + enc(t);
     else if (net === 'ok') link = 'https://connect.ok.ru/offer?url=' + enc(u) + '&title=' + enc(t) + '&imageUrl=' + enc(s.c);
     else if (net === 'wa') link = 'https://wa.me/?text=' + enc(t + ' ' + u);
