@@ -349,10 +349,17 @@
     var a = document.createElement('textarea'); a.value = x; a.style.position = 'fixed'; a.style.opacity = '0'; document.body.appendChild(a); a.select();
     try { document.execCommand('copy'); } catch (e) {} a.remove(); return Promise.resolve();
   }
+  /* На телефоне: «Скачать» сразу открывает системное меню «Поделиться» */
+  function quick(k) {
+    var s = S[k], mobile = window.matchMedia && matchMedia('(pointer: coarse)').matches;
+    if (!s || !navigator.share || !mobile || store('dl-ok-' + k) === '1') { show(k, 'track'); return; }
+    navigator.share({ title: 'АСЯ NOVA — ' + s.t, text: text(s), url: s.s || s.u })
+      .then(function () { store('dl-ok-' + k, '1'); show(k, 'track'); }, function () { show(k, 'track'); });
+  }
   function unlock() { store('dl-ok-' + cur.k, '1'); refresh(); }
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-dl]');
-    if (b) { e.preventDefault(); if (b.getAttribute('data-kind') === 'minus') minus(b.getAttribute('data-dl')); else show(b.getAttribute('data-dl'), 'track'); return; }
+    if (b) { e.preventDefault(); if (b.getAttribute('data-kind') === 'minus') minus(b.getAttribute('data-dl')); else quick(b.getAttribute('data-dl')); return; }
     if (!box || box.hidden) return;
     if (e.target.closest('[data-dl-close]')) { hide(); return; }
     var n = e.target.closest('[data-net]');
