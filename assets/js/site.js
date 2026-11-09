@@ -393,7 +393,7 @@
       '<a class="m-btn m-max" target="_blank" rel="noopener"><img src="/assets/icons/max.svg" alt="">Написать в MAX</a>' +
       '<a class="m-btn m-tg" target="_blank" rel="noopener"><img src="/assets/icons/telegram.svg" alt="">Написать в Telegram</a>' +
       '<a class="m-btn m-vk" target="_blank" rel="noopener"><img src="/assets/icons/vk.svg" alt="">Написать ВКонтакте</a>' +
-      '<a class="m-btn m-label btn-accent" href="https://uramusic.ru/" target="_blank" rel="noopener">Перейти на сайт «Ура! Музыки»</a></div>' +
+      '<a class="m-btn m-label btn-accent" target="_blank" rel="noopener">Написать на song@uramusic.ru</a></div>' +
       '<p class="m-phone">MAX: <a href="tel:' + C.phone + '">' + C.phoneView + '</a></p>' +
       '<p class="dl-note m-hint" hidden></p></div>';
     document.body.appendChild(mbox);
@@ -410,10 +410,11 @@
     mbox.querySelector('.m-max').href = C.max || ('tel:' + C.phone);
     var lab = k === 'devica';
     mbox.querySelector('.dl-lead').textContent = lab
-      ? 'Песня «Девица-красавица» вышла на лейбле «Ура! Музыка» (лейбл «Детского радио»). По поводу запроса или приобретения минусовки обращайтесь, пожалуйста, на сайт лейбла — сообщение можно взять готовое.'
+      ? 'По вопросу минусовки песни «Девица-красавица» нужно обратиться на лейбл «Ура! Музыка», написав запрос на почту song@uramusic.ru. Готовое сообщение — ниже.'
       : 'По поводу запроса или приобретения минусовки этой песни напишите нам — ответим и всё расскажем.';
     ['.m-max', '.m-tg', '.m-vk', '.m-phone'].forEach(function (q) { mbox.querySelector(q).hidden = lab; });
     mbox.querySelector('.m-label').hidden = !lab;
+    mbox.querySelector('.m-label').href = 'mailto:song@uramusic.ru?subject=' + encodeURIComponent('Запрос минусовки: АСЯ NOVA — «' + s.t + '»') + '&body=' + encodeURIComponent(msg);
     mbox.querySelector('.m-hint').hidden = true;
     mbox.hidden = false; document.documentElement.classList.add('dl-lock');
     mbox.querySelector('.dl-x').focus();
@@ -430,7 +431,7 @@
       h.textContent = b.classList.contains('m-tg') ? 'Сообщение подставится в чат. На всякий случай мы его скопировали.'
         : b.classList.contains('m-max') ? (C.max ? 'Сообщение скопировано — вставьте его в чат MAX.' : 'Сообщение скопировано. Найдите в MAX номер ' + C.phoneView + ' и вставьте сообщение в чат.')
         : b.classList.contains('m-vk') ? 'Сообщение скопировано — вставьте его в чат ВКонтакте.'
-        : b.classList.contains('m-label') ? 'Сообщение скопировано — вставьте его в форму связи на сайте лейбла.' : 'Сообщение скопировано.';
+        : b.classList.contains('m-label') ? 'Откроется почта с готовым письмом на song@uramusic.ru. Если почта не открылась — сообщение скопировано, отправьте его на этот адрес.' : 'Сообщение скопировано.';
       h.hidden = false;
     });
     if (b.classList.contains('m-max') && !C.max) e.preventDefault();
