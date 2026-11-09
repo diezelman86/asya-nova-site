@@ -278,3 +278,6 @@ main{overflow-x:clip}
 .dl-share .dl-main{background:var(--ink);color:var(--bg);border-color:var(--ink);padding:14px}
 .dl-alt{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .dl-alt[hidden]{display:none}
+.song-about{max-width:820px}
+.song-about .h2{margin-bottom:16px}
+.song-about p{font-size:17px;line-height:1.65;margin:0 0 12px;color:var(--ink)}
