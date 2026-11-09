@@ -363,7 +363,7 @@
   function unlock() { store('dl-ok-' + cur.k, '1'); refresh(); }
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-dl]');
-    if (b) { e.preventDefault(); goal(b.getAttribute('data-kind') === 'minus' ? 'minus_open' : 'download_open', { song: b.getAttribute('data-dl') }); if (b.getAttribute('data-kind') === 'minus') minus(b.getAttribute('data-dl')); else show(b.getAttribute('data-dl'), 'track'); return; }
+    if (b) { e.preventDefault(); goal(b.getAttribute('data-kind') === 'minus' ? 'open_minus' : 'open_download', { song: b.getAttribute('data-dl') }); if (b.getAttribute('data-kind') === 'minus') minus(b.getAttribute('data-dl')); else show(b.getAttribute('data-dl'), 'track'); return; }
     if (!box || box.hidden) return;
     if (e.target.closest('[data-dl-close]')) { hide(); return; }
     var n = e.target.closest('[data-net]');
