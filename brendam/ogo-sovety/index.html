@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кейс: рубрика #ОГОсоветы от АСЯ NOVA для бренда «ОГО!»</title>
+<meta name="description" content="Интеграция бренда полезных перекусов «ОГО!» в творчество юной певицы АСЯ NOVA: рубрика VK-клипов, фотосессия и посты-сторителлинг. Более 20 тысяч просмотров.">
+<link rel="canonical" href="https://asyanova.ru/brendam/ogo-sovety/">
+<meta property="og:title" content="Кейс: рубрика #ОГОсоветы от АСЯ NOVA для бренда «ОГО!»"><meta property="og:description" content="Интеграция бренда полезных перекусов «ОГО!» в творчество юной певицы АСЯ NOVA: рубрика VK-клипов, фотосессия и посты-сторителлинг. Более 20 тысяч просмотров."><meta property="og:url" content="https://asyanova.ru/brendam/ogo-sovety/"><meta property="og:image" content="https://asyanova.ru/assets/img/og.jpg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf7f1; --ink:#1d1b1a; --muted:#6b6560; --red:#d7262e; --yellow:#ffd23f;
+    --card:#ffffff; --line:#ece4d8; --radius:20px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:56px 24px 72px}
+  .eyebrow{display:inline-block;font:700 12px/1 Manrope,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--red);background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px}
+  h1{font:800 clamp(34px,5.4vw,60px)/1.05 Unbounded,sans-serif;margin:20px 0 14px;letter-spacing:-.01em}
+  h1 .tag{color:var(--red)}
+  h1 .hl{background:linear-gradient(transparent 62%,var(--yellow) 62%);padding:0 .08em}
+  .lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:760px;margin:0}
+  h2{font:700 clamp(22px,2.4vw,28px)/1.2 Unbounded,sans-serif;margin:0 0 18px}
+  section{margin-top:56px}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+  .stat b{display:block;font:800 clamp(26px,3vw,36px)/1 Unbounded,sans-serif;color:var(--red)}
+  .stat span{display:block;margin-top:8px;font-size:14px;color:var(--muted);line-height:1.35}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
+  .box h3{font:700 15px/1 Manrope,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:0 0 12px}
+  .box p{margin:0}
+  ul.done{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+  ul.done li{position:relative;padding-left:34px}
+  ul.done li:before{content:"";position:absolute;left:0;top:3px;width:22px;height:22px;border-radius:50%;
+    background:var(--yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%231d1b1a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+
+  .clips{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .clip{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .clip:hover{transform:translateY(-4px);box-shadow:0 14px 30px -14px rgba(60,30,10,.35)}
+  .clip:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+  .cover{position:relative;aspect-ratio:9/16;overflow:hidden;background:#eee}
+  .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+  .clip:hover .cover img{transform:scale(1.04)}
+  .num{position:absolute;top:10px;left:10px;font:800 13px/1 Unbounded,system-ui,sans-serif;background:var(--red);color:#fff;
+    border-radius:999px;padding:7px 10px}
+  .play{position:absolute;left:10px;bottom:8px;width:40px;height:40px;border-radius:50%;
+    background:rgba(215,38,46,.92);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25);transition:transform .2s}
+  .clip:hover .play{transform:scale(1.1)}
+  .play svg{width:16px;height:16px;margin-left:3px;fill:#fff}
+  .views{position:absolute;right:10px;bottom:16px;font:700 12px/1 Manrope,system-ui,sans-serif;color:#fff;background:rgba(0,0,0,.6);
+    border-radius:999px;padding:6px 10px}
+  .meta{padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .meta strong{font:700 15px/1.3 Manrope,system-ui,sans-serif}
+  .meta small{font-size:13.5px;line-height:1.45;color:var(--muted)}
+  .meta .go{margin-top:auto;padding-top:6px;font:700 13px/1 Manrope,system-ui,sans-serif;color:var(--red)}
+
+  .result{background:var(--ink);color:#fff;border-radius:calc(var(--radius) + 4px);padding:34px 34px}
+  .result h2{color:#fff}
+  .result p{margin:0 0 12px;color:#e9e3dc}
+  .result p:last-child{margin:0}
+  .result b{color:var(--yellow)}
+  .foot{margin-top:28px;font-size:13px;color:var(--muted)}
+
+
+  .shoot-intro{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;margin-bottom:18px}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:12px;grid-auto-flow:dense}
+  .gallery button{all:unset;cursor:zoom-in;border-radius:16px;overflow:hidden;background:#2a2320;position:relative}
+  .gallery button:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+  .gallery button:hover img{transform:scale(1.04)}
+  .gallery .tall{grid-row:span 2}
+  .lb{position:fixed;inset:0;background:rgba(20,14,10,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  @media (max-width:980px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.shoot-intro{grid-template-columns:1fr}}
+
+  .posts-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+  .posts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start}
+  .post{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+  .post .shot{all:unset;cursor:zoom-in;display:block;max-height:420px;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
+  .post .shot img{width:100%;display:block}
+  .post .shot:after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(transparent,#fff)}
+  .post .shot:focus-visible{outline:3px solid var(--red);outline-offset:-3px}
+  .post .pm{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px}
+  .post .pm strong{font:700 15px/1.3 Manrope,system-ui,sans-serif}
+  .post .date{font-size:13px;color:var(--muted)}
+  .kv{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;font-size:13.5px}
+  .kv b{font:800 16px/1.1 Unbounded,system-ui,sans-serif;color:var(--red);display:block}
+  .kv span{color:var(--muted);font-size:12.5px}
+  .post .links{display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}
+  .post .links a,.post .links button{all:unset;cursor:pointer;font:700 13px/1 Manrope,system-ui,sans-serif;color:var(--red)}
+  .post .links button:focus-visible,.post .links a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+  @media (max-width:980px){.posts{grid-template-columns:repeat(2,1fr)}.posts-sum{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.posts{grid-template-columns:1fr}}
+
+  html{scroll-behavior:smooth}
+  .mech{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .mcard{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:24px 24px 22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .mcard:hover{transform:translateY(-3px);box-shadow:0 14px 30px -16px rgba(60,30,10,.35)}
+  .mcard:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+  .mcard .mn{font:800 13px/1 Unbounded,system-ui,sans-serif;color:#fff;background:var(--red);border-radius:999px;padding:7px 11px;align-self:flex-start}
+  .mcard h3{font:700 19px/1.25 Unbounded,system-ui,sans-serif;margin:4px 0 0}
+  .mcard p{margin:0;font-size:15px;color:var(--muted)}
+  .mcard .mm{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:14px}
+  .mcard .mm b{font:800 18px/1 Unbounded,system-ui,sans-serif;color:var(--red);margin-right:6px}
+  .mcard .go{font:700 13px/1 Manrope,system-ui,sans-serif;color:var(--red)}
+  .mlabel{display:block;font:700 12px/1 Manrope,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+  section[id]{scroll-margin-top:16px}
+  @media (max-width:860px){.mech{grid-template-columns:1fr}}
+  @media (max-width:980px){.clips{grid-template-columns:repeat(3,1fr)} .stats{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:640px){.wrap{padding:36px 16px 56px}.two{grid-template-columns:1fr}
+    .clips{grid-template-columns:repeat(2,1fr);gap:12px}.result{padding:26px 22px}}
+
+  .contact-card{display:grid;grid-template-columns:minmax(200px,260px) 1fr;gap:20px 32px;align-items:start;border-top:1px solid rgba(255,255,255,.14);padding-top:22px;margin-top:6px}
+  .contact-card .who b{display:block;font:700 19px/1.3 Unbounded,system-ui,sans-serif;color:#fff}
+  .contact-card .who span{display:block;margin-top:4px;color:#bfb7ae;font-size:14px}
+  .contact-card ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 28px}
+  .contact-card li{display:flex;flex-direction:column;gap:2px}
+  .contact-card li span{font-size:12.5px;color:#bfb7ae;text-transform:uppercase;letter-spacing:.08em}
+  .contact-card a{color:var(--yellow);text-decoration:none;font-weight:700;font-size:16px}
+  .contact-card a:hover{text-decoration:underline}
+  @media (max-width:700px){.contact-card{grid-template-columns:1fr}}
+  .cta-h{font:700 20px/1.3 Unbounded,system-ui,sans-serif;color:#fff;margin:26px 0 16px}
+
+  .cbtns{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+  .cbtn{display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.06);color:#fff!important;text-decoration:none!important;font:700 15px/1.25 Manrope,system-ui,sans-serif;transition:background .2s,border-color .2s,transform .2s}
+  .cbtn small{font:600 11.5px/1 Manrope,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#bfb7ae}
+  .cbtn:hover{background:rgba(255,255,255,.12);border-color:var(--yellow);transform:translateY(-1px)}
+  .cbtn:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+  .cbtn.primary{background:var(--yellow);border-color:var(--yellow);color:var(--ink)!important}
+  .cbtn.primary small{color:rgba(29,27,26,.65)}
+
+  .cb-bar{max-width:1120px;margin:0 auto;padding:18px 24px 0;display:flex;gap:10px;flex-wrap:wrap;font:600 14px/1.4 Manrope,system-ui,sans-serif;color:var(--muted)}
+  .cb-bar a{color:var(--red);text-decoration:none}
+  .cb-bar a:hover{text-decoration:underline}
+  .wrap{padding-top:28px!important}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114138090', 'ym');
+
+    ym(114138090, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114138090" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<nav class="cb-bar" aria-label="Навигация"><a href="/">asyanova.ru</a><span>/</span><a href="/brendam/">Сотрудничество</a><span>/</span><a href="/brendam/#cases">Кейсы</a></nav>
+<main class="wrap">
+  <span class="eyebrow">Кейс · интеграция бренда</span>
+  <h1><span class="tag">#ОГОсоветы</span><br>от <span class="hl">АСЯ NOVA</span></h1>
+  <p class="lead">Интеграция бренда полезных перекусов «ОГО!» в творчество юной артистки: собственная рубрика VK-клипов, фотосессия и посты-сторителлинг, в которых продукция стала частью активного дня Аси.</p>
+
+  <div class="stats">
+    <div class="stat"><b>5</b><span>выпусков рубрики в VK-клипах</span></div>
+    <div class="stat"><b>20K+</b><span>просмотров серии</span></div>
+    <div class="stat"><b>10K</b><span>просмотров у самого популярного выпуска</span></div>
+    <div class="stat"><b>erid</b><span>все публикации промаркированы как реклама по закону</span></div>
+  </div>
+
+  <section>
+    <h2>Три механики в одной кампании</h2>
+    <div class="mech">
+      <a class="mcard" href="#clips"><span class="mn">01</span><h3>VK-клипы: рубрика #ОГОсоветы</h3>
+        <p>Серия коротких клипов с полезными советами, где продукт встроен в сюжет каждого выпуска.</p>
+        <div class="mm"><b>20K+</b>просмотров, 5 выпусков</div><span class="go">Смотреть выпуски ↓</span></a>
+      <a class="mcard" href="#photo"><span class="mn">02</span><h3>Фотосессия с продукцией</h3>
+        <p>Съёмка в стилистике релиза «Старые игрушки у камина»: продукт становится частью истории песни.</p>
+        <div class="mm"><b>6</b>кадров для постов и анонсов</div><span class="go">Смотреть фото ↓</span></a>
+      <a class="mcard" href="#posts"><span class="mn">03</span><h3>Посты-сторителлинг</h3>
+        <p>Личные истории Аси: бэкстейдж со съёмок, насыщенный день, старт амбассадорства.</p>
+        <div class="mm"><b>83%</b>просмотров от новой аудитории</div><span class="go">Смотреть посты ↓</span></a>
+    </div>
+  </section>
+
+  <section class="two">
+    <div class="box">
+      <h3>Задача</h3>
+      <p>Познакомить детскую и семейную аудиторию с продукцией «ОГО!» так, чтобы это воспринималось не как реклама, а как полезный и живой контент.</p>
+    </div>
+    <div class="box">
+      <h3>Решение</h3>
+      <p>Менеджмент АСЯ NOVA разработал для бренда отдельную рубрику. В ней Ася, певица, танцор и блогер, делится простыми советами о питании, движении и энергии в насыщенном графике: школа, репетиции, тренировки, концерты. Продукция «ОГО!» встроена в сюжет каждого выпуска.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Что сделано</h2>
+    <div class="box">
+      <ul class="done">
+        <li>Серия из пяти VK-клипов, выходивших с весны по лето 2026 года, с единым оформлением, хештегом и слоганом бренда «ОГО, я смогла!»</li>
+        <li>Фотосессия с продукцией в стилистике релиза «Старые игрушки у камина» и серия постов-бэкстейджей со съёмок</li>
+        <li>Продукт в сюжете: сушки «Малышка» перед тренировкой, сублимированная клубника к завтраку, печенье на прогулке, хлебцы и кукурузные хлопья на съёмочной площадке</li>
+        <li>Все публикации промаркированы как реклама по закону, с erid</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="clips">
+    <span class="mlabel">Механика 01</span>
+    <h2>VK-клипы: рубрика #ОГОсоветы</h2>
+    <div class="clips">
+      <a class="clip" href="https://vk.ru/clip-31319842_456239205" target="_blank" rel="noopener">
+        <div class="cover"><img src="/assets/img/cases/ogo-sovety/205.jpg" alt="Обложка выпуска «Как подготовиться к тренировке»">
+          <span class="num">01</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span><span class="views">2,5K просмотров</span></div>
+        <div class="meta"><strong>Как подготовиться к тренировке</strong><small>Зачем подкрепиться перед нагрузкой и каким должен быть правильный перекус</small><span class="go">Смотреть в VK →</span></div>
+      </a>
+      <a class="clip" href="https://vk.ru/clip-31319842_456239212" target="_blank" rel="noopener">
+        <div class="cover"><img src="/assets/img/cases/ogo-sovety/212.jpg" alt="Обложка выпуска «Энергия — наше всё!»">
+          <span class="num">02</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span><span class="views">1,7K просмотров</span></div>
+        <div class="meta"><strong>Энергия — наше всё!</strong><small>Тренировка с ансамблем «Маршмеллоу» и сушки «Малышка» от ОГО!</small><span class="go">Смотреть в VK →</span></div>
+      </a>
+      <a class="clip" href="https://vk.ru/clip-31319842_456239232" target="_blank" rel="noopener">
+        <div class="cover"><img src="/assets/img/cases/ogo-sovety/232.jpg" alt="Обложка выпуска «Бодрое утро: ТОП-5 упражнений для всех»">
+          <span class="num">03</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span><span class="views">10K просмотров</span></div>
+        <div class="meta"><strong>Бодрое утро: ТОП-5 упражнений</strong><small>Утренняя зарядка и сублимированная клубника ОГО! к завтраку</small><span class="go">Смотреть в VK →</span></div>
+      </a>
+      <a class="clip" href="https://vk.ru/clip-31319842_456239240" target="_blank" rel="noopener">
+        <div class="cover"><img src="/assets/img/cases/ogo-sovety/240.jpg" alt="Обложка выпуска «Лучшие летние дни — в парке»">
+          <span class="num">04</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span><span class="views">2,7K просмотров</span></div>
+        <div class="meta"><strong>Лучшие летние дни — в парке</strong><small>Семейная прогулка, активные игры и любимое печенье ОГО!</small><span class="go">Смотреть в VK →</span></div>
+      </a>
+      <a class="clip" href="https://vk.ru/clip-31319842_456239241" target="_blank" rel="noopener">
+        <div class="cover"><img src="/assets/img/cases/ogo-sovety/241.jpg" alt="Обложка выпуска «Правильное питание — источник побед»">
+          <span class="num">05</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span><span class="views">641 просмотр</span></div>
+        <div class="meta"><strong>Правильное питание — источник побед</strong><small>Почему питание помогает добиваться целей на сцене и в спорте</small><span class="go">Смотреть в VK →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="photo">
+    <span class="mlabel">Механика 02</span>
+    <h2>Фотосессия с продукцией</h2>
+    <div class="shoot-intro">
+      <div class="box">
+        <h3>Идея</h3>
+        <p>Рекламная фотосессия снята в стилистике релиза «Старые игрушки у камина»: тёплый винтажный интерьер, свечи, бархатный диван и уютный образ Аси. Продукция «ОГО!» стала частью атмосферы песни, а не отдельной предметной съёмкой.</p>
+      </div>
+      <div class="box">
+        <h3>Подача</h3>
+        <p>Серия постов построена на бэкстейдже со съёмок. Ася рассказывает, как важен правильный перекус даже на длинной съёмочной смене. В кадре хрустящие хлебцы и кукурузные хлопья без сахара от «ОГО!».</p>
+      </div>
+    </div>
+    <div class="gallery">
+      <button class="tall" aria-label="Открыть фото"><img src="/assets/img/cases/ogo-sovety/p2.jpg" alt="АСЯ NOVA с кукурузными хлопьями ОГО! на винтажном диване"></button>
+      <button aria-label="Открыть фото"><img src="/assets/img/cases/ogo-sovety/p0.jpg" alt="АСЯ NOVA с хрустящими хлебцами ОГО!"></button>
+      <button aria-label="Открыть фото"><img src="/assets/img/cases/ogo-sovety/p1.jpg" alt="АСЯ NOVA с хрустящими хлебцами ОГО!, улыбается"></button>
+      <button class="tall" aria-label="Открыть фото"><img src="/assets/img/cases/ogo-sovety/p3.jpg" alt="АСЯ NOVA на диване с хлопьями ОГО!, в полный рост"></button>
+      <button aria-label="Открыть фото"><img src="/assets/img/cases/ogo-sovety/p4.jpg" alt="АСЯ NOVA с хлопьями ОГО! у люстры со свечами"></button>
+      <button aria-label="Открыть фото"><img src="/assets/img/cases/ogo-sovety/p5.jpg" alt="АСЯ NOVA с хлопьями ОГО! в винтажном интерьере"></button>
+    </div>
+  </section>
+
+  <section id="posts">
+    <span class="mlabel">Механика 03</span>
+    <h2>Посты-сторителлинг</h2>
+    <div class="posts-sum">
+      <div class="stat"><b>4</b><span>рекламных поста с продукцией «ОГО!»</span></div>
+      <div class="stat"><b>11,6K</b><span>просмотров постов</span></div>
+      <div class="stat"><b>83%</b><span>просмотров от тех, кто не подписан на сообщество</span></div>
+      <div class="stat"><b>158</b><span>реакций и 8 репостов</span></div>
+    </div>
+    <div class="posts">
+      <article class="post">
+        <button class="shot" data-zoom aria-label="Открыть скрин поста"><img src="/assets/img/cases/ogo-sovety/post_2969.jpg" alt="Скрин поста: Старт амбассадорства"></button>
+        <div class="pm">
+          <strong>Старт амбассадорства</strong><span class="date">6 февраля 2026</span>
+          <div class="kv">
+            <div><b>3 518</b><span>просмотров</span></div>
+            <div><b>89%</b><span>не подписчики</span></div>
+            <div><b>41</b><span>реакций</span></div>
+            <div><b>3</b><span>репоста</span></div>
+          </div>
+          <div class="links">
+            <button data-zoom-src="stats_2969" aria-label="Открыть скрин статистики">Статистика ↗</button>
+            <a href="https://vk.ru/wall-31319842_2969" target="_blank" rel="noopener">Пост в VK →</a>
+          </div>
+        </div>
+      </article>
+      <article class="post">
+        <button class="shot" data-zoom aria-label="Открыть скрин поста"><img src="/assets/img/cases/ogo-sovety/post_3057.jpg" alt="Скрин поста: «Маленький момент в большом дне» — сушки «Малышка»"></button>
+        <div class="pm">
+          <strong>«Маленький момент в большом дне» — сушки «Малышка»</strong><span class="date">7 апреля 2026</span>
+          <div class="kv">
+            <div><b>1 408</b><span>просмотров</span></div>
+            <div><b>63%</b><span>не подписчики</span></div>
+            <div><b>30</b><span>реакций</span></div>
+            <div><b>2</b><span>репоста</span></div>
+          </div>
+          <div class="links">
+            <button data-zoom-src="stats_3057" aria-label="Открыть скрин статистики">Статистика ↗</button>
+            <a href="https://vk.ru/wall-31319842_3057" target="_blank" rel="noopener">Пост в VK →</a>
+          </div>
+        </div>
+      </article>
+      <article class="post">
+        <button class="shot" data-zoom aria-label="Открыть скрин поста"><img src="/assets/img/cases/ogo-sovety/post_3073.jpg" alt="Скрин поста: Бэкстейдж фотосессии — кукурузные хлопья"></button>
+        <div class="pm">
+          <strong>Бэкстейдж фотосессии — кукурузные хлопья</strong><span class="date">22 апреля 2026</span>
+          <div class="kv">
+            <div><b>3 212</b><span>просмотров</span></div>
+            <div><b>85%</b><span>не подписчики</span></div>
+            <div><b>55</b><span>реакций</span></div>
+            <div><b>2</b><span>репоста</span></div>
+          </div>
+          <div class="links">
+            <button data-zoom-src="stats_3073" aria-label="Открыть скрин статистики">Статистика ↗</button>
+            <a href="https://vk.ru/wall-31319842_3073" target="_blank" rel="noopener">Пост в VK →</a>
+          </div>
+        </div>
+      </article>
+      <article class="post">
+        <button class="shot" data-zoom aria-label="Открыть скрин поста"><img src="/assets/img/cases/ogo-sovety/post_3545.jpg" alt="Скрин поста: Бэкстейдж фотосессии — хрустящие хлебцы"></button>
+        <div class="pm">
+          <strong>Бэкстейдж фотосессии — хрустящие хлебцы</strong><span class="date">19 мая 2026</span>
+          <div class="kv">
+            <div><b>3 455</b><span>просмотров</span></div>
+            <div><b>83%</b><span>не подписчики</span></div>
+            <div><b>32</b><span>реакций</span></div>
+            <div><b>1</b><span>репост</span></div>
+          </div>
+          <div class="links">
+            <button data-zoom-src="stats_3545" aria-label="Открыть скрин статистики">Статистика ↗</button>
+            <a href="https://vk.ru/wall-31319842_3545" target="_blank" rel="noopener">Пост в VK →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div hidden><img id="stats_2969" hidden src="/assets/img/cases/ogo-sovety/stats_2969.jpg" alt="Статистика записи ВКонтакте"><img id="stats_3057" hidden src="/assets/img/cases/ogo-sovety/stats_3057.jpg" alt="Статистика записи ВКонтакте"><img id="stats_3073" hidden src="/assets/img/cases/ogo-sovety/stats_3073.jpg" alt="Статистика записи ВКонтакте"><img id="stats_3545" hidden src="/assets/img/cases/ogo-sovety/stats_3545.jpg" alt="Статистика записи ВКонтакте"></div>
+    <p class="foot">Статистика из раздела «Статистика записи» ВКонтакте, ноябрь 2026 года. Нажмите на пост или «Статистика», чтобы открыть скрин.</p>
+  </section>
+
+  <section class="result">
+    <h2>Результат</h2>
+    <p>Пять выпусков набрали в сумме <b>более 20 тысяч просмотров</b>, а самый популярный, «Бодрое утро», — <b>около 10 тысяч</b>.</p>
+    <p>В этом выпуске мы применили <b>механику вовлечения</b>: Ася спрашивала зрителей, с чего начинается их утро. В комментариях развернулось живое обсуждение утренних упражнений и привычек.</p>
+    <p>Ещё четыре поста с продукцией набрали <b>11,6 тысячи просмотров</b>, и <b>83%</b> из них пришли от людей, не подписанных на сообщество. Значит, контент выходил за пределы аудитории артистки и знакомил с брендом новых людей.</p>
+    <p>Рубрика остаётся открытым форматом. Её можно продолжать, привязывая выпуски к сезонам, событиям и новинкам бренда, и переносить на другие площадки.</p>
+    <h3 class="cta-h">Обсудить интеграцию для вашего бренда</h3>
+    <div class="contact-card">
+      <div class="who"><b>Евгений Игнатов</b><span>продюсер АСЯ NOVA</span></div>
+      <div class="cbtns">
+        <a class="cbtn primary" href="tel:+78314151586"><small>Звонки</small>+7 (831) 415-15-86</a>
+        <a class="cbtn" href="https://t.me/+79534151286" target="_blank" rel="noopener"><small>Telegram</small>+7 (953) 415-12-86</a>
+        <a class="cbtn" href="tel:+79534151286"><small>MAX</small>+7 (953) 415-12-86</a>
+        <a class="cbtn" href="https://vk.me/diezelman" target="_blank" rel="noopener"><small>ВКонтакте</small>vk.me/diezelman</a>
+        <a class="cbtn" href="mailto:diezelman@bk.ru"><small>Почта</small>diezelman@bk.ru</a>
+        <a class="cbtn" href="https://band.link/asya_nova" target="_blank" rel="noopener"><small>Музыка</small>band.link/asya_nova</a>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">Данные о просмотрах — по состоянию на ноябрь 2026 года. Клипы открываются во ВКонтакте.</p>
+</main>
+<div class="lb" id="lb" role="dialog" aria-label="Просмотр фото"><img alt=""></div>
+<script>
+(function(){var lb=document.getElementById('lb'),im=lb.querySelector('img');
+document.querySelectorAll('.gallery button,[data-zoom],[data-zoom-src]').forEach(function(b){b.addEventListener('click',function(){var s=b.dataset.zoomSrc?document.getElementById(b.dataset.zoomSrc):b.querySelector('img');im.src=s.src;im.alt=s.alt;lb.classList.add('open');});});
+lb.addEventListener('click',function(){lb.classList.remove('open');});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});})();
+</script>
+</body>
+</html>
