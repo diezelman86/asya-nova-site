@@ -287,6 +287,7 @@
 
 /* Скачать / Получить минус — окно «поделись и скачай» */
 (function () {
+  function goal(n, p) { try { if (window.ym) ym(114138090, 'reachGoal', n, p || {}); } catch (e) {} }
   var S = window.SONGS || {};
   var box = null, cur = null;
   function store(key, val) { try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; } }
@@ -333,6 +334,7 @@
   }
   function hide() { if (box) { box.hidden = true; document.documentElement.classList.remove('dl-lock'); } }
   function share(net) {
+    goal('share', { song: cur.k, net: net });
     var s = S[cur.k], u = s.s || s.u, t = text(s), link;
     if (net === 'share') {
       if (navigator.share) { navigator.share({ title: 'АСЯ NOVA — ' + s.t, text: t, url: u }).then(unlock, function () {}); return; }
@@ -361,12 +363,13 @@
   function unlock() { store('dl-ok-' + cur.k, '1'); refresh(); }
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-dl]');
-    if (b) { e.preventDefault(); if (b.getAttribute('data-kind') === 'minus') minus(b.getAttribute('data-dl')); else show(b.getAttribute('data-dl'), 'track'); return; }
+    if (b) { e.preventDefault(); goal(b.getAttribute('data-kind') === 'minus' ? 'minus_open' : 'download_open', { song: b.getAttribute('data-dl') }); if (b.getAttribute('data-kind') === 'minus') minus(b.getAttribute('data-dl')); else show(b.getAttribute('data-dl'), 'track'); return; }
     if (!box || box.hidden) return;
     if (e.target.closest('[data-dl-close]')) { hide(); return; }
     var n = e.target.closest('[data-net]');
     if (n) { share(n.getAttribute('data-net')); return; }
     var g = e.target.closest('.dl-get');
+    if (g && !g.classList.contains('locked')) goal('download', { song: cur.k });
     if (g && g.classList.contains('locked')) { e.preventDefault(); var l = box.querySelector('.dl-lead'); l.classList.remove('dl-shake'); void l.offsetWidth; l.classList.add('dl-shake'); }
   });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { hide(); hideM(); } });
@@ -421,6 +424,7 @@
     if (e.target.closest('[data-m-close]')) { hideM(); return; }
     var b = e.target.closest('.m-btn, .m-msg');
     if (!b) return;
+    goal('minus_contact', { via: (b.className.match(/m-(max|tg|vk|label)/) || [])[1] || 'copy' });
     var h = mbox.querySelector('.m-hint');
     copy(msg).then(function () {
       h.textContent = b.classList.contains('m-tg') ? 'Сообщение подставится в чат. На всякий случай мы его скопировали.'
