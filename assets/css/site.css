@@ -374,3 +374,13 @@ main{overflow-x:clip}
 .smi-case-b h3{margin:0;font-family:Unbounded,sans-serif;font-size:clamp(20px,2.2vw,28px);line-height:1.2}
 .smi-case-b p{margin:0;color:var(--muted);font-weight:600;line-height:1.55;font-size:17px}
 @media (max-width:700px){.smi-case{grid-template-columns:1fr}.smi-case-img{aspect-ratio:4/3}}
+.lg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.lg-card{display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:16px;color:var(--ink);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.lg-card:hover{transform:translateY(-3px);box-shadow:0 14px 28px -18px rgba(0,0,0,.4);color:var(--ink)}
+.lg-prev{display:grid;place-items:center;aspect-ratio:16/10;border-radius:12px;padding:16px;margin-bottom:6px}
+.lg-prev img{max-width:100%;max-height:100%;object-fit:contain}
+.lg-light{background:#f4f1ec}
+.lg-dark{background:#1b1b1b}
+.lg-card b{font-size:17px}
+.lg-card span:last-child{color:var(--accent-text);font-weight:800;font-size:14px}
+.lg-all{margin:18px 0 0}
