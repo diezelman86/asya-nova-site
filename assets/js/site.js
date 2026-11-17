@@ -287,7 +287,8 @@
 
 /* Скачать / Получить минус — окно «поделись и скачай» */
 (function () {
-  function goal(n, p) { try { if (window.ym) ym(114138090, 'reachGoal', n, p || {}); } catch (e) {} }
+  function goal(n, p) { try { if (window.ym) ym(114138090, 'reachGoal', n, p || {}); } catch (e) {} try { (window._tmr = window._tmr || []).push({ type: 'reachGoal', id: 3815746, goal: n }); } catch (e) {} }
+  document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('.prod-contacts a'); if (a) goal('collab_contact', { page: location.pathname }); });
   var S = window.SONGS || {};
   var box = null, cur = null;
   function store(key, val) { try { if (val === undefined) return localStorage.getItem(key); localStorage.setItem(key, val); } catch (e) { return null; } }
