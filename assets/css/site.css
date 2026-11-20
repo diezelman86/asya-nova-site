@@ -417,3 +417,6 @@ main{overflow-x:clip}
 .pr-vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
 .pr-vid{margin:0;overflow:hidden;display:flex;flex-direction:column}
 .pr-frame{position:relative;aspect-ratio:16/9;background:#000}.pr-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* отступ под заголовком раздела */
+.sec>.h2,.sec>.h-display:first-child{margin-bottom:24px}
+.pr-journ .h-display{margin-bottom:10px!important}
