@@ -17,4 +17,5 @@
 <url><loc>https://asyanova.ru/brendam/valencia/</loc></url>
 <url><loc>https://asyanova.ru/organizatoram/</loc></url>
 <url><loc>https://asyanova.ru/smi/</loc></url>
+  <url><loc>https://asyanova.ru/pressa/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
