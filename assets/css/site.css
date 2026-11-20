@@ -420,3 +420,8 @@ main{overflow-x:clip}
 /* отступ под заголовком раздела */
 .sec>.h2,.sec>.h-display:first-child{margin-bottom:24px}
 .pr-journ .h-display{margin-bottom:10px!important}
+.pr-songs a{color:inherit;text-decoration:underline;text-underline-offset:2px}.pr-songs a:hover{color:#C8102E}
+@media(min-width:1000px){.pr-grid4{grid-template-columns:repeat(4,1fr)}}
+.pr-more{margin:22px 0 0}
+.pr-filter button span{opacity:.6;font-weight:600;margin-left:2px}
+.sec>h1.h2{margin-bottom:16px}
