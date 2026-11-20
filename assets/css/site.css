@@ -431,3 +431,5 @@ main{overflow-x:clip}
 .rl-ph{display:block;border-radius:18px;overflow:hidden;border:1px solid var(--border)}.rl-ph img{width:100%;height:auto;display:block;transition:transform .2s}.rl-ph:hover img{transform:scale(1.02)}
 .rl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;align-items:start}
 .rl-txt .eyebrow{margin-bottom:10px}
+.rl-txt h1{margin-bottom:18px}
+@media(max-width:760px){.rl-cover{max-width:320px}}
