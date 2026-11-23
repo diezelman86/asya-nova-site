@@ -438,3 +438,24 @@
     if (b.classList.contains('m-max') && !C.max) e.preventDefault();
   });
 })();
+
+/* Клик по плееру Яндекс Музыки (iframe) → цель player_click */
+(function () {
+  var over = null, sent = {};
+  function goal(n, p) { try { if (window.ym) ym(114138090, 'reachGoal', n, p || {}); } catch (e) {} try { (window._tmr = window._tmr || []).push({ type: 'reachGoal', id: 3815746, goal: n }); } catch (e) {} }
+  function song() { var m = location.pathname.match(/\/music\/([^\/]+)/); return m ? m[1] : location.pathname; }
+  document.querySelectorAll('iframe.ym-player, iframe[src*="music.yandex"]').forEach(function (f, i) {
+    f.addEventListener('mouseenter', function () { over = i; });
+    f.addEventListener('mouseleave', function () { if (over === i) over = null; });
+    f.addEventListener('touchstart', function () { over = i; }, { passive: true });
+  });
+  window.addEventListener('blur', function () {
+    setTimeout(function () {
+      var a = document.activeElement;
+      if (!a || a.tagName !== 'IFRAME' || !/music\.yandex/.test(a.src)) return;
+      var k = song();
+      if (sent[k]) return; sent[k] = 1;
+      goal('player_click', { song: k });
+    }, 0);
+  });
+})();
