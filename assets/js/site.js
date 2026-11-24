@@ -482,3 +482,17 @@ document.addEventListener('click', function (e) {
   try { if (window.ym) ym(114138090, 'reachGoal', 'fan_download', { file: f }); } catch (x) {}
   try { (window._tmr = window._tmr || []).push({ type: 'reachGoal', id: 3815746, goal: 'fan_download' }); } catch (x) {}
 });
+
+/* Лайтбокс для фотоальбомов (a[data-gal]) */
+(function () {
+  var links = [].slice.call(document.querySelectorAll('a[data-gal]')); if (!links.length) return;
+  var i = 0, box = document.createElement('div'); box.className = 'lb'; box.hidden = true;
+  box.innerHTML = '<img alt=""><button class="lb-x" aria-label="Закрыть">×</button><button class="lb-p" aria-label="Назад">‹</button><button class="lb-n" aria-label="Вперёд">›</button>';
+  document.body.appendChild(box); var img = box.querySelector('img');
+  function show(n) { i = (n + links.length) % links.length; img.src = links[i].href; img.alt = links[i].querySelector('img').alt; box.hidden = false; }
+  links.forEach(function (a, n) { a.addEventListener('click', function (e) { e.preventDefault(); show(n); }); });
+  box.addEventListener('click', function (e) { if (e.target.closest('.lb-n')) show(i + 1); else if (e.target.closest('.lb-p')) show(i - 1); else if (e.target === box || e.target.closest('.lb-x')) box.hidden = true; });
+  document.addEventListener('keydown', function (e) { if (box.hidden) return; if (e.key === 'Escape') box.hidden = true; if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+  var sx = 0; box.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener('touchend', function (e) { var d = e.changedTouches[0].clientX - sx; if (Math.abs(d) > 50) show(i + (d < 0 ? 1 : -1)); });
+})();

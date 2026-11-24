@@ -20,5 +20,12 @@
   <url><loc>https://asyanova.ru/pressa/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://asyanova.ru/pressa/socseti/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://asyanova.ru/pressa/redlily/</loc><priority>0.5</priority></url>
-  <url><loc>https://asyanova.ru/fanatam/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://asyanova.ru/media/</loc><priority>0.5</priority></url>
+  <url><loc>https://asyanova.ru/media/foto/devitsa-krasavitsa/</loc><priority>0.5</priority></url>
+  <url><loc>https://asyanova.ru/media/foto/gory-sinie/</loc><priority>0.5</priority></url>
+  <url><loc>https://asyanova.ru/media/foto/starye-igrushki/</loc><priority>0.5</priority></url>
+  <url><loc>https://asyanova.ru/media/foto/takoe-kino/</loc><priority>0.5</priority></url>
+  <url><loc>https://asyanova.ru/media/foto/gorod/</loc><priority>0.5</priority></url>
+  <url><loc>https://asyanova.ru/media/foto/lyubimaya-mama/</loc><priority>0.5</priority></url>
+  <url><loc>https://asyanova.ru/media/foto/promo/</loc><priority>0.5</priority></url>
 </urlset>
