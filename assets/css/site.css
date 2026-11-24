@@ -433,3 +433,23 @@ main{overflow-x:clip}
 .rl-txt .eyebrow{margin-bottom:10px}
 .rl-txt h1{margin-bottom:18px}
 @media(max-width:760px){.rl-cover{max-width:320px}}
+/* Фанатам */
+.fn-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.fn-tile{overflow:hidden;display:flex;flex-direction:column;color:inherit;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.fn-tile:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.08);text-decoration:none}
+.fn-tile img{width:100%;height:220px;object-fit:cover;object-position:50% 25%}
+.fn-tile span{padding:16px 18px;display:flex;flex-direction:column;gap:6px}.fn-tile b{font-family:Unbounded,sans-serif;font-size:17px}.fn-tile small{font-size:15px;color:var(--muted)}
+.fn-walls{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.fn-wall{position:relative;display:block;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.fn-wall img{width:100%;height:auto;display:block;aspect-ratio:9/16;object-fit:cover}
+.fn-wall span{position:absolute;left:10px;right:10px;bottom:10px;text-align:center;background:rgba(200,16,46,.92);color:#fff;font-weight:800;font-size:13px;border-radius:999px;padding:7px 0;opacity:0;transition:opacity .15s}
+.fn-wall:hover span,.fn-wall:focus span{opacity:1}
+@media(hover:none){.fn-wall span{opacity:1}}
+.fn-files{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.fn-file{display:flex;align-items:center;gap:14px;padding:12px 16px 12px 12px;color:inherit;text-decoration:none}
+.fn-file:hover{border-color:#C8102E;text-decoration:none}
+.fn-file img{width:56px;height:56px;border-radius:10px;object-fit:cover;flex:none}
+.fn-file span{display:flex;flex-direction:column;gap:3px;flex:1}.fn-file b{font-size:16px}.fn-file small{font-size:13px;color:var(--muted)}
+.fn-file i{font-style:normal;font-weight:900;font-size:20px;color:#C8102E}
+.fn-big{margin-bottom:8px}.fn-big img{width:72px;height:108px}.fn-big b{font-family:Unbounded,sans-serif;font-size:18px}
+.fn-h3{font-family:Unbounded,sans-serif;font-size:20px;margin:34px 0 10px}

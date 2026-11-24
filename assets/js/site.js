@@ -474,3 +474,11 @@
   }, { threshold: 0.35 });
   ids.forEach(function (id) { var el = document.getElementById(id); if (el && (location.pathname === '/' || location.pathname === '/index.html')) io.observe(el); });
 })();
+
+/* Скачивания на странице «Фанатам» → цель fan_download */
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[data-fan]'); if (!a) return;
+  var f = a.getAttribute('data-fan');
+  try { if (window.ym) ym(114138090, 'reachGoal', 'fan_download', { file: f }); } catch (x) {}
+  try { (window._tmr = window._tmr || []).push({ type: 'reachGoal', id: 3815746, goal: 'fan_download' }); } catch (x) {}
+});
