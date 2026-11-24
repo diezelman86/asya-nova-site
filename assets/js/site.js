@@ -459,3 +459,18 @@
     }, 0);
   });
 })();
+
+/* Блоки главной, которые посетитель увидел на экране → цели see_<id> */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var ids = ['music', 'afisha', 'video', 'comics', 'merch', 'collab'], sent = {};
+  function goal(n) { try { if (window.ym) ym(114138090, 'reachGoal', n); } catch (e) {} try { (window._tmr = window._tmr || []).push({ type: 'reachGoal', id: 3815746, goal: n }); } catch (e) {} }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var id = e.target.id; if (sent[id]) return; sent[id] = 1;
+      goal('see_' + id); io.unobserve(e.target);
+    });
+  }, { threshold: 0.35 });
+  ids.forEach(function (id) { var el = document.getElementById(id); if (el && (location.pathname === '/' || location.pathname === '/index.html')) io.observe(el); });
+})();
