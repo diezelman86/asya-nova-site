@@ -144,6 +144,8 @@
   .cb-bar{max-width:1120px;margin:0 auto;padding:18px 24px 0;display:flex;gap:10px;flex-wrap:wrap;font:600 14px/1.4 Manrope,system-ui,sans-serif;color:var(--muted)}
   .cb-bar a{color:var(--red);text-decoration:none}
   .cb-bar a:hover{text-decoration:underline}
+  .cb-bar a.cb-cta{margin-left:auto;font-weight:800}
+  #contacts{scroll-margin-top:24px}
   .wrap{padding-top:28px!important}
 
   .cf-foot{background:#121212;color:#fff;margin-top:72px}
@@ -171,8 +173,8 @@
 <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3815746;js=na" style="position:absolute;left:-9999px;" alt=""></div></noscript>
 <!-- /VK Pixel -->
 </head>
-<body>
-<nav class="cb-bar" aria-label="Навигация"><a href="/">asyanova.ru</a><span>/</span><a href="/brendam/">Сотрудничество</a><span>/</span><a href="/brendam/#cases">Кейсы</a></nav>
+<body data-cta="Обсудить интеграцию">
+<nav class="cb-bar" aria-label="Навигация"><a href="/">asyanova.ru</a><span>/</span><a href="/brendam/">Сотрудничество</a><span>/</span><a href="/brendam/#cases">Кейсы</a><a class="cb-cta" href="#contacts">Обсудить интеграцию →</a></nav>
 <main class="wrap">
   <span class="eyebrow">Кейс · интеграция бренда</span>
   <h1><span class="tag">#ОГОсоветы</span><br>от <span class="hl">АСЯ NOVA</span></h1>
@@ -363,7 +365,7 @@
     <p>В этом выпуске мы применили <b>механику вовлечения</b>: Ася спрашивала зрителей, с чего начинается их утро. В комментариях развернулось живое обсуждение утренних упражнений и привычек.</p>
     <p>Ещё четыре поста с продукцией набрали <b>11,6 тысячи просмотров</b>, и <b>83%</b> из них пришли от людей, не подписанных на сообщество. Значит, контент выходил за пределы аудитории артистки и знакомил с брендом новых людей.</p>
     <p>Рубрика остаётся открытым форматом. Её можно продолжать, привязывая выпуски к сезонам, событиям и новинкам бренда, и переносить на другие площадки.</p>
-    <h3 class="cta-h">Обсудить интеграцию для вашего бренда</h3>
+    <h3 class="cta-h" id="contacts">Обсудить интеграцию для вашего бренда</h3>
     <div class="contact-card">
       <div class="who"><b>Евгений Игнатов</b><span>продюсер АСЯ NOVA</span></div>
       <div class="cbtns">
@@ -391,5 +393,6 @@ document.querySelectorAll('.gallery button,[data-zoom],[data-zoom-src]').forEach
 lb.addEventListener('click',function(){lb.classList.remove('open');});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});})();
 </script>
+<script src="/assets/js/collab-cta.js?v=1" defer></script>
 </body>
 </html>

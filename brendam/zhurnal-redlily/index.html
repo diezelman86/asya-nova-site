@@ -181,6 +181,8 @@
   .cb-bar{max-width:1120px;margin:0 auto;padding:18px 24px 0;display:flex;gap:10px;flex-wrap:wrap;font:600 14px/1.4 Manrope,system-ui,sans-serif;color:var(--muted)}
   .cb-bar a{color:var(--red);text-decoration:none}
   .cb-bar a:hover{text-decoration:underline}
+  .cb-bar a.cb-cta{margin-left:auto;font-weight:800}
+  #contacts{scroll-margin-top:24px}
   .wrap{padding-top:28px!important}
 
   .cf-foot{background:#121212;color:#fff;margin-top:72px}
@@ -208,8 +210,8 @@
 <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3815746;js=na" style="position:absolute;left:-9999px;" alt=""></div></noscript>
 <!-- /VK Pixel -->
 </head>
-<body>
-<nav class="cb-bar" aria-label="Навигация"><a href="/">asyanova.ru</a><span>/</span><a href="/brendam/">Сотрудничество</a><span>/</span><a href="/brendam/#cases">Кейсы</a></nav>
+<body data-cta="Связаться с продюсером">
+<nav class="cb-bar" aria-label="Навигация"><a href="/">asyanova.ru</a><span>/</span><a href="/brendam/">Сотрудничество</a><span>/</span><a href="/brendam/#cases">Кейсы</a><a class="cb-cta" href="#contacts">Связаться с продюсером →</a></nav>
 <main class="wrap">
   <span class="eyebrow">Кейс · СМИ и медиа</span>
   <h1>АСЯ NOVA<br>на <span class="hl">обложке журнала</span></h1>
@@ -288,7 +290,7 @@
       <li><b>Фотосессии</b> для обложек и материалов</li>
       <li><b>Готовые инфоповоды</b>: премьеры песен, клипы, комиксы, коллаборации с брендами</li>
     </ul>
-    <div class="contact-card">
+    <div class="contact-card" id="contacts">
       <div class="who"><b>Евгений Игнатов</b><span>продюсер АСЯ NOVA</span></div>
       <div class="cbtns">
         <a class="cbtn primary" href="tel:+78314151586"><small>Звонки</small>+7 (831) 415-15-86</a>
@@ -314,5 +316,6 @@ document.querySelectorAll('[data-zoom]').forEach(function(b){b.addEventListener(
 lb.addEventListener('click',function(){lb.classList.remove('open');});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});})();
 </script>
+<script src="/assets/js/collab-cta.js?v=1" defer></script>
 </body>
 </html>
